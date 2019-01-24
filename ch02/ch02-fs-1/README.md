@@ -1,1 +1,0 @@
-[Weekly Windows Dockerfile #8](https://blog.sixeyed.com/weekly-windows-dockerfile-8/)
