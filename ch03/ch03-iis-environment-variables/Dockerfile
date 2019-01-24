@@ -20,3 +20,13 @@ COPY bootstrap.ps1 C:\
 ENTRYPOINT ["powershell", "C:\\bootstrap.ps1"]
 
 COPY default.aspx .
+
+## docker build -t dockeronwindows/ch03-iis-environment-variables .
+## docker container run -d -P --name iis-env dockeronwindows/ch03-iis-environment-variables
+##
+## Example on usign environment variables
+## docker container run  --env ENV_01='Hello' --env ENV_02='World'  microsoft/nanoserver powershell 'Write-Output $env:ENV_01 $env:ENV_02'
+##
+## IIS reads variables at machine level and docker writes environment variables
+## at the process level, so docker needs to promote environment variables from process level
+## to machine level. Use bootstrap.ps1 for this.

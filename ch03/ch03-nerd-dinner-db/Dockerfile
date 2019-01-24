@@ -21,3 +21,7 @@ COPY Initialize-Database.ps1 .
 CMD powershell ./Initialize-Database.ps1 -sa_password $env:sa_password -data_path $env:data_path -Verbose
 
 COPY --from=builder C:\docker\NerdDinner.Database.dacpac .
+
+## docker build -t dockeronwindows/ch03-nerd-dinner-db .
+## mkdir -p C:\databases\nd
+## docker container run -d -p 1433:1433 --name nerd-dinner-db -v C:\databases\nd:C:\data dockeronwindows/ch03-nerd-dinner-db

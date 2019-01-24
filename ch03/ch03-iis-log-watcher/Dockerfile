@@ -13,3 +13,6 @@ CMD Start-Service W3SVC; `
     Invoke-WebRequest http://localhost -UseBasicParsing | Out-Null; `
     netsh http flush logbuffer | Out-Null; `
     Get-Content -path 'c:\iislog\W3SVC\u_extend1.log' -Tail 1 -Wait 
+
+# docker build -t dockerwindows/ch03-iis-log-watcher .
+## docker container run -d -P --name log-watcher dockeronwindows/ch03-iis-log-watcher

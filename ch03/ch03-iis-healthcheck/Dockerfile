@@ -37,3 +37,10 @@ COPY bootstrap.ps1 C:\
 ENTRYPOINT ["powershell", "C:\\bootstrap.ps1"]
 
 COPY --from=builder C:\out\Healthcheck\_PublishedWebsites\Healthcheck.WebApi c:\healthcheck-api
+
+## docker build -t dockeronwindows/ch03-iis-healthcheck .
+## docker container run -d -P --name healthcheck dockeronwindows/ch03-iis-healthcheck
+#
+## docker container ls
+## $ip = docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' healthcheck
+## iwr = "http://$ip/toogle/unhealthy" -Method Post
